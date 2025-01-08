@@ -1,28 +1,28 @@
 function rowSums = splitMatrixAndSum(originalMatrix, k)
-    % »ñÈ¡Ô­¾ØÕóµÄ´óĞ¡
+   
     [N, M] = size(originalMatrix);
     
-    % ¼ì²é M ÊÇ·ñ¿ÉÒÔ±» k Õû³ı
+   
     if mod(M, k) ~= 0
-        error('ÁĞÊı M ±ØĞëÄÜ¹»±» k Õû³ı¡£');
+        error('åˆ—æ•° M å¿…é¡»èƒ½å¤Ÿè¢« k æ•´é™¤ã€‚');
     end
     
-    % ¼ÆËãÃ¿¸öĞ¡¾ØÕóµÄÁĞÊı
+    
     colsPerMatrix = M / k;
     
-    % ³õÊ¼»¯Ò»¸öÊı×éÀ´´æ´¢Ã¿¸öĞ¡¾ØÕó°´ĞĞÇóºÍµÄ½á¹û
+    
     rowSums = zeros(N, k);
     
-    % °´ÁĞ²ğ·ÖÔ­¾ØÕó²¢ÇóºÍ
+   
     for i = 1:k
-        % ¼ÆËãµ±Ç°Ğ¡¾ØÕóµÄÁĞË÷Òı
+        
         colStart = (i-1) * colsPerMatrix + 1;
         colEnd = i * colsPerMatrix;
         
-        % ÌáÈ¡Ğ¡¾ØÕó
+        
         smallMatrix = originalMatrix(:, colStart:colEnd);
         
-        % ¶ÔĞ¡¾ØÕó°´ĞĞÇóºÍ
-        rowSums(:, i) = sum(smallMatrix, 2); % µÚ¶ş¸ö²ÎÊı 2 ±íÊ¾°´ĞĞÇóºÍ
+        
+        rowSums(:, i) = sum(smallMatrix, 2); 
     end
 end
